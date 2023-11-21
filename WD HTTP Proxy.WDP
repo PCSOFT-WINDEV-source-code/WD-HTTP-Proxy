@@ -1,0 +1,136 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : WD HTTP Proxy
+ major_version : 28
+ minor_version : 0
+ type : 4097
+ description : WD HTTP Proxy
+ subtype : 0
+project :
+ identifier : 0x0
+ internal_properties : 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
+ configurations :
+  -
+    name : WD HTTP Proxy
+    internal_properties : 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
+    configuration_id : 17627530890914397711
+    type : 1
+    generation_name : WD HTTP Proxy.exe
+    version :
+     major_version : 22
+     minor_version : 36
+     internal_generation_version : 3
+     autoincrement_version : false
+    icon_filename : .\description.ico
+    language : 2
+    telemetry :
+     status : disabled
+    new_features_help :
+     name : ""
+     internal_properties : CAAAAAgAAADLR9hyucqbj18nuGNF3xf0R02mOnjcR9LRi2MZOv7hTxkQEahJUiO6J0QPIQaVESNfE+04MHJU5j68SA==
+ elements :
+  identifier : 0x4afd4a290069b926
+  elements :
+   -
+     name : TEST_Proxy
+     identifier : 0x4b01315c000ee243
+     internal_properties : CAAAAAgAAAB60KLmxYKqtbJBM2SeEjaxwqEZwX3PttZWTc1kL8xI0CiaTgmWsZkY20W/Ofn3g3Vf5w==
+     physical_name : .\TEST_Proxy.wxt
+     type : 17
+   -
+     name : Global procedures of WD HTTP Proxy
+     identifier : 0x47f22b680000a86a
+     internal_properties : CAAAAAgAAAA0EhwYp5yUl6Az+a5A7TivyKl3b2nwwJiO2/c0LOuptzGhRwCsW09ODTehH+cZ4dchIQ==
+     physical_name : .\Global procedures of WD HTTP Proxy.wdg
+     type : 7
+   -
+     name : WIN_Proxy
+     identifier : 0x47f23f1d0005a14f
+     internal_properties : CAAAAAgAAABYNgAcq9BYA8yfRYpsi6DPvBl7Y1HIYQZO7ywSTvmTVbsH2Y4QPyuqqZMN66sl3dM9xQ==
+     physical_name : .\WIN_Proxy.wdw
+     type : 2
+   -
+     name : IProxy
+     identifier : 0x47f22b8f000140c2
+     internal_properties : CAAAAAgAAACGjO4y8a4GKTb1p+gCqvoVFgUNVW0kwrN2ZRrJO+ygYKBiprHyHQ2MT8kzjRXLtymTkw==
+     physical_name : .\IProxy.wdc
+     type : 4
+   -
+     name : CHTTPProxy
+     identifier : 0x47f2306400032166
+     internal_properties : CAAAAAgAAAAuNAYaqdZeEd6tr/A6s/IdamtheVvKa4yuU8JuFgGLTY9Xrbr6FQWEd6Eb5a0j39E7Ow==
+     physical_name : .\CHTTPProxy.wdc
+     type : 4
+   -
+     name : WIN_Configuration
+     identifier : 0x47f238860004e54c
+     internal_properties : CAAAAAgAAAByyKr+TTpyrYpJyxzmDAqlgoXRAbWcucFWfc2reZ52uh7sNCOOuaEg0023AYF/e21X3w==
+     physical_name : .\WIN_Configuration.wdw
+     type : 2
+  other_elements :
+   -
+     physical_name : .\proxy.ico
+   -
+     physical_name : .\proxy-off.ico
+   -
+     physical_name : .\proxy-on.ico
+  net_assemblies : []
+  uwp_api : []
+  external_components : []
+  internal_components : []
+ report_and_queries_enabled : false
+ common_generation_directory : true
+ languages :
+  - en-GB
+ code_elements :
+  internal_properties : CAAAAAgAAAB1sfhSwLa5dpRaP+gLctHRO+HO4XQ/0zbcua8QL91PeC3kyR0H+Y79X5JWT+ER49199YCM5l0pen6YEaoxr51kMeXBdhXKjdiudXJDTfaAy3lBW0GG9/kHzQ==
+  type_code : 0
+  p_codes :
+   -
+     code : |1-
+      
+      // Proxy
+      gclProxy 	is CHTTPProxy
+      
+      // Read the parameters
+      InitParameter(paramIni)
+      
+      // Configure the port of the proxy
+      gclProxy:Port 				= LoadParameter("Port", 8080)
+      
+      // SSL setting
+      gclProxy:SSLIsActive			= LoadParameter("SSL", True)
+      
+      // Configure the log
+      gclProxy:LogDirectory 	= LoadParameter("DirectoryLog", "")
+      gclProxy:LogEnabled 		= LoadParameter("Log", True)
+     type : 196608
+   -
+     code : |1-
+      
+     type : 196610
+   -
+     type : 196621
+   -
+     type : 196627
+     enabled : false
+  orphans :
+   -
+     name : WD HTTP Proxy
+     identifier : 0x4afd4a29006fba01
+     code_elements :
+      type_code : 159
+      p_codes : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+rad :
+ internal_properties : CAAAAAgAAABhIL0UXeZmxDJxY3Xy0Q==
+project_explorer :
+ explorer_type : project
+resources :
+ string_res :
+  identifier : 0x0
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAAAd98VSJfHHqE3P0QHwrwdhn7ig8dWBR6valpUTgnAMTVXiDg==

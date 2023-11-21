@@ -1,0 +1,291 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : WIN_Proxy
+ major_version : 28
+ minor_version : 0
+ type : 2
+ description : ""
+ subtype : 0
+window :
+ name : WIN_Proxy
+ identifier : 0x28510c9f0322c821
+ internal_properties : CAAAAAgAAADeieeekXSzQ4pLSgPN3dxKhIjspqLP3Xxgwyw2I5TWlfD0ZlmaPKIizHdsNVEmX1Wd/roe22RPAb8KlBQLiemysn4bmL3uVz+VT/2zCossXq+G0UadgrQx7a4tqoYtcER+/a5OGrCxQSlxUtRsEaZAu/h26sfkT4mpcHtBDFcwl4NjmTmiZge7hYIEudc0YszBy+IiytFev7rGM/KYLZyV1KZA0qbT3BLDUCNYoRL2OZ4490jcoELHMlsXdOr08lKThu8mY96Ozr9ys8q2c4fBQLOQEn00iDLXYceLLBaLLqUv7tpiTQ8OTwKeWPjgxX2CXEsiEt9UDSbVq9hPRwKreQYZGiCSETW1/zYiS9t0A4JCqkU0i1lTvcprHSInq8eh6mRHFnHMSyE+iRPjUcKmvZxvNlvZEkwhNn5yayldAUzqok3tT6B6sXylVn52anXUTVxR/+EvkZbXigZrJNrS3npjvjiDMK6xZuQXyU1K21QF6/ipvkZvxAVpPKRb4qRQLss0i4ExzajhLX4so/OYq7ht2LgHx/OwU+3Dic6CZUwZEgl5NiWTWq+QzMxi5JlqKbrTaNU2KTyqJknuWaWNxKBx4r3jRy/ceH87k11ijj+bXoTJ7CEJoDj+O1jUoioR3CXA7SMZRyT2Ql9DsMhhC+LV8odd+s+WppemKvJxwLB4vwddLZNDyjE3pEKaCMYrmB3XjVPUxjdrWN1nscgzgUtZw3rFGOq30AEaWTAtebtkBOkgtIzleusPrCpXiPmLVf5ZP3gSaYgHtSjazYwRcSuK43dLveT9xGxhMDmt0JIA25w=
+ properties :
+  width : 207
+  height : 32
+  widthClient : 205
+  heightClient : 0
+ controls : []
+ menu :
+  name : _Menu
+  identifier : 0x27f23f026cdf38f0
+  internal_properties : CAAAAAgAAAD5gPGcQ0NcUf7AMYGSjH3SKonY1aajmHiCylebi1O+vnN+S50LvYGcaeoWjnMgQ5jz4Ib9YIctreSaq8B2nCq8hSNvnNUGk4PU6mjZTVra+ztp0/uuuq7ZXWc9V42DlHnf1NpiH/fT9ENuIAPeUBMFaA8loINATdTF5tlL1bms0rSsvkMFETC8MED3i+fm6j9fvqcI93+PiyTAcZ+w1g2bhOPDn3eY34Yf5VlAbG/rGOihIqGsnStzVXZsmZCqaCdVJmz7ppaLAKKqNI5Cm/ssb1iT1MuTie0/Jwcq9rvGZQ==
+  options : []
+ popup_menus :
+  -
+    name : MENU_Proxy
+    identifier : 0x28510c9f032ac821
+    internal_properties : CAAAAAgAAADZsubob9QRxRIo3HdWDhKYMBLvn8aH0G86igC0y0WMUrpMiFj0jxZ4vKIYqlkEgJVturN/KM02pmVNk5fD1LiDIV3+znlyL708SFWEImYt3vv2sbLmJAqQJiAAOfv+9Yjxi4fBQPBYAp1mHpGsrZ9YLuGAoGQnL8RxdhMHILWj0o7WdVOH1U2/V/8lMHjmJOCr9mw55G+Xps7hNVCOl4RhcJ+G7S+hXMPV8nebUg8IPnAEuEDiTkekSgVcID2mmJiQFVI4jeBXr/qSgnp9KtVpPpQcSJMXtWtW+g0Q+/QDETc21s6lXI83MS/pjn/LPRN+2qPdMDuRoOCi6PgV+5PE8Uo1C3DAJJ0cb+rm4mfDgcQZtAM/erjsT7KNqr+CBYL/qavAIgdNMpwoA3EyZQ==
+    options :
+     -
+       name : OPT_Start
+       identifier : 0x28510c9f032bc821
+       internal_properties : CAAAAAgAAABClvWkkvN0HSQReioXnDib8rPTfPvoZOmfZtl/+p60bwba89uFPqm/nzQlrNPA8BAS2CghKC91zeqs7Z1NHUpHB/1KiwWvhAp9lccO/Pto3rn1h/OEPJsoZLRzPoYUSd+l+KKJ6Ciik8fCeEwo7qGNVHBTjb0I9mZ0fH+F0ei9Uy5/kbelQp231xVTCM4T9UyKkMG4/v+4RPw6ThFGP2hiz7HDztrgnaxOgAFrYu8hdOrE05C/OtoLAeRrkSi9h//dbyA9CImIZIGe1vcFIyoxKhOrghPdoMBPky8RsjyfO+rbosmrD7GD5c/ST9QTK4JXKaQnIbQJQcUP4yMrsWtwJiipMnWQMAF+00MCDdXsbxY5Rrrjc0SlQtMp3FKBKeQZOJ20gRD6CN0KGFE1ClBN3G7yFegXKODK
+       code_elements :
+        type_code : 26
+        p_codes :
+         -
+           code : |1-
+            
+            IF gclProxy:AtRuntime THEN RETURN
+            
+            // Starts the proxy
+            IF gclProxy:Start() THEN
+            	
+            	OPT_Start..State 	= Grayed
+            	OPT_Stop_..State 	= Active		
+            	
+            	// Modifies the icon
+            	SysIconModify(fExeDir + ["\"] + "proxy-on.ico", "WD HTTP Proxy [Enabled]")
+            	
+            	// Displays a message at run time
+            	SysIconDisplayTooltip("To stop or modify the options of the proxy, right-click the icon below.", "The proxy is running", sysTooltipTypeInfo)
+            	
+            ELSE
+            	Error("Unable to start the proxy", ErrorInfo())
+            END
+           type : 32
+     -
+       name : OPT_Stop_
+       identifier : 0x28510c9f032cc821
+       internal_properties : CAAAAAgAAAAhAVoRr9v2MMgeoiPOsuh0XVw90s4ajf9GIaCbvk9k8VwtmLYaB2Uqw7OPad3F6CqQWhbNqc2qxLcwqPASq6qzNjHQjUtoTza1C2wxAVbglCzpctUWnAEfwLqO3OqWOG5/UVLMMWu2U9ExGO+QkYyr2KwCY8ewGUVachasjouSNEsDK5Knal7p5WrMS+IDMK1aiB+07uVpdoLhIFZjqUcIAShtoLjCEPDPG1JA0jr38cHZ2jmbSz4ihRSEmfsllNqjTzYxH1+nvmr7ZJzS1yYSNX/YoAzbCg2htSjnj2V7KTXR7gno9f00E/XnaAws1rpYMRUXwi+oyvFY6s0SM9UV+wg7fMP2OCLUiT6qAHPIJEfLldox1gSHeIsiU3NEP+v7K9+wakbPkAmEG7vWvQHzZ0c/Y0NiFKJfQ0JGsg==
+       code_elements :
+        type_code : 26
+        p_codes :
+         -
+           code : |1-
+            
+            // Stops the proxy
+            gclProxy:StopNow()
+            
+            // Modifies the icon
+            SysIconModify(fExeDir + ["\"] + "proxy-off.ico", "WD HTTP Proxy [Disabled]")
+            
+            // Displays a message at run time
+            SysIconDisplayTooltip("To start or modify the options of the proxy, right-click the icon below.", "The proxy has stopped", sysTooltipTypeWarning)
+            
+            OPT_Start..State 	= Active
+            OPT_Stop_..State 	= Grayed
+           type : 32
+     -
+       name : OPT__1
+       identifier : 0x28510c9f032dc821
+       internal_properties : CAAAAAgAAABKzHSxNobmKRsF7BioZcrpw6RLQRkMQk0AsoGeHeHEo18rmhGV0EEV9delDgTdbnn7xbNRPQ13OlIjqlR/7bngeAHWKN33mdGfiVR3P9eZ09SKUJLKTSs/eB4HGfPXJHhgaHlA+dSgXen3E0YvmAn9+tq+07BGO29ndoU4KPw7t0EsYSj6v4lzILHTUIFFqeEbjeGVe09oH2isKC1IjvdjOTvD36yo10EKVu5KRs6DXxbGGgTJ+bsWLIlgt4inWvIfgODsLPACQq59JnZHguE6cSEC3Ja1C195QhGe+BWsC7xfl5GwL5fugLVfdjaZq1s7QNCtL4tO2QcBMYdZRv6tEgqkDX6DBSpbnOiLKky8Wy/0Ar/CDGIvYcn3kdlo153vLe3IRdE+qKuCLBbWgrp5Wdk=
+       code_elements :
+        type_code : 26
+        p_codes : []
+     -
+       name : OPT_Options
+       identifier : 0x28510c9f032ec821
+       internal_properties : CAAAAAgAAADjFPgBC531aOOnRSOEkVlql7WK9dwsfNtqKj7QA49LTb2CnuSio9gILCSSg31ijXur5zCbxw9qJ20UC74oCj77mdItAic0dCDLCsV5NO6gGxBbOEen7HIs24j+ffHQPCX4D61dsUrhKkEJpSx+yBkiFzWBD8DpXxiOuD3/mzcFwifNQ+icWBHr086qncSm90RdX6ZA0122LJuQsnRiq8NzT1b5oZ2wUM112ENIC65ao8Q0hF4F+LOnLgvcQEGhAJnGcKOjptMtYITGeA+TpKzTc8ioEXWua34ZRrtZhjEurIAflonJ98587WjghdYr1ex2vIemId+qiP1yROMoXW78OWFN35SUj84CY/qF/X6XN9eqosNLXJ+YMSkfH5KmnkVo/+1ta6dcTIkgFneHT98fw6iaejkUt6NqpVyeGTBDbpopmnDE
+       code_elements :
+        type_code : 26
+        p_codes :
+         -
+           code : |1-
+            
+            // Opens the configuration window
+            Open(WIN_Configuration)
+           type : 32
+     -
+       name : OPT__2
+       identifier : 0x28510c9f032fc821
+       internal_properties : CAAAAAgAAACxhNQTlM2AQHxI1POOa5YYnaUWQilRaZjHMZWduQnbqqavFM8fXcyXRI/UJMwxW/FJFCJF86A4wkzB2jYZSPs2AaMt03RJtqyWduFxaRqg2Qcf/hW+0VTuKl3Dbk65q9SP2lKU33N759MkDmTByTOkN0O/w4hkLtGDS/N7tEC891WpnGMTlHstabYDTV+oM3zkC7qPnWkaqsoYcoayQ5wlLRo0dcLa+HtVMcbTHfXp4KZMgXgnOaBv8GhthZ3xEon6DUGWce2H+dUExYTOQbx4St+yshCGFRudcrPqAg4goE6UdAgQ9JQQEZkoZwSyXHuybPACCdCtn4hPwSBG3CYY3Ssd5Ew5jnURecv+NFvmJAG6AUbfuMlF3WZqdXtLClH9jFyeA4lvOWT2sbRZ0Y+ieJaq
+       code_elements :
+        type_code : 26
+        p_codes : []
+     -
+       name : OPT_Exit
+       identifier : 0x28510c9f0330c821
+       internal_properties : CAAAAAgAAABhybxnuc3kz/pEbKC5bEfYAwmWAUAa72Yr8eE/Bl5JXE+5G8GTto/XhKOyk47d+FO8eNSyPkw2JEQAbKZTRyvkDLd6a7Dy11xoPHOrcPneYcSt4lXnXCSW3nBGMTCR3z+JuriKLBiXgrNY6h5iOetc3DgZvrvXfq49HubpFch/O5Lup3+KnD6QiEVRMSGbl60CD3NPgTz6BzmZ+/9UgKiltNcqXY9nEzxEst0iTVS/A1LhfBXIktdmQr8T2bgdgpt9hg/qjQTYJKRfE768TTBjyNampZZZ9GgUsu9VcsPuifN/hnQI50PydHogZkh7uN25NVfVgHUeWAiW6mbP88Wr/WP0x+FjD+4pEWEXkSSiIqaTqELD0zKoiIw/wgDzREn3WkEBENebosnDwv3xzjBK26dTUr3+SYOp
+       code_elements :
+        type_code : 26
+        p_codes :
+         -
+           code : |1+
+            
+            // Stops the proxy
+            gclProxy:StopNow()
+            
+            // Modifies the icon
+            SysIconModify(fExeDir + ["\"] + "proxy-off.ico", "WD HTTP Proxy [Disabled]")
+            
+            IF OPT_Start..State <> Active THEN
+            	
+            	// Displays a message at run time
+            	SysIconDisplayTooltip("To start or modify the options of the proxy, right-click the icon below.", "The proxy has stopped", sysTooltipTypeWarning)
+            END
+            
+            OPT_Start..State 	= Active
+            OPT_Stop_..State 	= Grayed
+            
+            // End of program
+            EndProgram(True)
+            
+           type : 32
+    controls : []
+    code_elements :
+     type_code : 26
+     p_codes : []
+ languages :
+  - en-GB
+ message_bar :
+  internal_properties : CAAAAAgAAADvyTncWH0TxK+IoIgySEao9WN5dtFXKBPK0sy5VYQlhoEy5fid7YGHDnDwILly0uslHKhBtdTkE6glLBVtyKp0CxkQMoghDrSO/SS6nsb9Jsd81oaTb5EkPyKzKA==
+ actionbar : {}
+ code_elements :
+  type_code : 1
+  p_codes :
+   -
+     code : |1-
+      
+      // Starts the proxy
+      IF gclProxy:Start() = False THEN
+      	Error("Unable to start the proxy", ErrorInfo())
+      END
+   -
+     internal_properties : CAAAAAgAAACoV1QyO/VOqKNus9YSJ4QvaxiJNazVLBZBGz/jfbe2V08o/HndBcfP7vqL0cXCt+Qn+Idnu7mJAAMcXknjvOePZK+Ww3YqB5z51Q48mSy9EcoBgFnhqRnne+mbCkCbgqU+5ffrEunCS5hxmQ==
+     code : |1-
+      
+      // Adds an icon into the systray
+      SysIconAdd(fExeDir + ["\"] + "proxy.ico", MENU_Proxy, "WD HTTP Proxy", OnSystrayIcon)
+     type : 34
+   -
+     type : 180
+     enabled : false
+   -
+     type : 230
+     enabled : false
+   -
+     code : |1-
+      
+     type : 40
+   -
+     code : |1-
+      
+     type : 2
+   -
+     code : |1-
+      
+     type : 11
+   -
+     code : |1-
+      
+     type : 12
+   -
+     code : |1-
+      
+     type : 17
+   -
+     code : |1-
+      
+     type : 13
+  procedures :
+   -
+     name : OnSystrayIcon
+     internal_properties : CAAAAAgAAAChfdLeshwSjpLxEVhwMF9+qLIEwXRtjRotiCQ2GCm4kOQfX2PgRH+LJbTmwSXcp9bmj16cfoX0xiq7G64+bo2//JxR4EIzh5QuVhYoy3HR/tLDRq3e8JYDhfitlIoZdTNMh6faPG6M+EUperaRyHQZwZAXvliZS49i+Sbgmq7DQjtOQOZN2fYL0TlCTNRaJ0qIDJKvVecdtSx/7ZjOYTH3J1H+k+tcUIjt9pZqnKcM4EfqSiVXqUidarj+MNfIG4LLqae8C1b1dUolhnFEvGkNY/Tv+9npfgMy4VCbh1hqDyiMoPrnKkQtxiwkk4FCIzccZE9DD2F6hUVSp9edCklLMr9d469X2o/FUGQwcjy4X+sMc7gj+NvIn195Or8Phm+c6jEsBA==
+     procedure_id : 1752195607077767201
+     type_code : 14
+     code : |1+
+      // Summary: Manages the events of the icon
+      // Syntax:
+      //[ <Result> = ] OnSystrayIcon (<nIDBalloonTip> is int, <nEvent> is int)
+      //
+      // Parameters:
+      //	nEvent (integer): Number of the event
+      // Return value:
+      // 	boolean: False
+      //
+      PROCEDURE OnSystrayIcon(LOCAL nEvent is int)
+      
+      // Double click
+      IF nEvent = 515 THEN
+      	
+      	// Load the options
+      	ExecuteProcess(MENU_Proxy.OPT_Options, trtMenuOption)
+      	RESULT False
+      END
+     type : 458752
+   -
+     name : ProxyStatus
+     internal_properties : CAAAAAgAAACLtHmCU3ZM1ZGbaysdSDR3auuDLHKQ9iGT/fz5mXlHxoQGy+RdeBvqnFf+BmpEc15y2O7BjU/aOJEXjUa34BayM7VWRYBxTR3Hnxha0FWN18hyeFozymqc9MIXlOU9PNrpT3jM0Zi9ZPmuC8HKgbhuRml2RTgAsItDRLTrIY4Tyw65YgAk
+     procedure_id : 1752195607077832737
+     type_code : 14
+     code : |1-
+      // Summary: <specify the action of the procedure>
+      // Syntax:
+      //ProxyStatus ()
+      //
+      // Parameters:
+      //	None
+      // Return value:
+      // 	None
+      //
+      // Automatic procedure:
+      // The procedure is automatically run, after the initialization code of the window
+      // It will be repeated in loop, with 1 second between each call
+      // Each following call runs the procedure once, without timer
+      // 
+      
+      PROCEDURE ProxyStatus()
+      
+      // Manage the menu options
+      IF gclProxy:AtRuntime THEN		
+      	
+      	// Modifies the icon
+      	SysIconModify(fExeDir + ["\"] + "proxy-on.ico", "WD HTTP Proxy [Enabled]")
+      	
+      	IF OPT_Start..State <> Grayed THEN
+      		
+      		// Displays a message at run time
+      		SysIconDisplayTooltip("To stop or modify the options of the proxy, right-click the icon below.", "The proxy is running", sysTooltipTypeInfo)
+      	END
+      	
+      	OPT_Start..State 	= Grayed
+      	OPT_Stop_..State 	= Active		
+      	
+      ELSE
+      	
+      	// Modifies the icon
+      	SysIconModify(fExeDir + ["\"] + "proxy-off.ico", "WD HTTP Proxy [Disabled]")
+      	
+      	IF OPT_Start..State <> Active THEN
+      		
+      		// Displays a message at run time
+      		SysIconDisplayTooltip("To start or modify the options of the proxy, right-click the icon below.", "The proxy has stopped", sysTooltipTypeWarning)
+      	END
+      	
+      	OPT_Start..State 	= Active
+      	OPT_Stop_..State 	= Grayed
+      END
+      
+      IF WinStatus(WIN_Configuration) <> NotFound THEN
+      	// Configure the port if the proxy is not active
+      	WIN_Configuration.EDT_PORT..State = (gclProxy:AtRuntime ? Grayed ELSE Active)
+      END
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : FEN_Fenêtre1
+resources :
+ string_res :
+  identifier : 0x17f23ef700440f50
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAAC68/W0/adbG0nFCRhrE42B5HRnbDzVHaz86sSQyxlBk7I=
+associated_test :
+ name : TEST_Proxy.wxt
+rad :
+ internal_properties : CAAAAAgAAABoAN7PLpwJW3EiA7WVZdCA5EwrCA1rvutcDHooMWKe

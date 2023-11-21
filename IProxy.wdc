@@ -1,0 +1,442 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : IProxy
+ major_version : 28
+ minor_version : 0
+ type : 4
+ description : ""
+ subtype : 0
+class :
+ identifier : 0x17c0433301e3878d
+ internal_properties : CAAAAAgAAAB2/vstTMCJbS/hlxjFxirSqKvCUuv8YxgpWyl7S3iA
+ code_elements :
+  type_code : 10
+  p_codes :
+   -
+     internal_properties : CAAAAAgAAAAQOfF4B1Dw1SNyWc4FzH6DkK5L1TMQ38BmYEo7PTBa5aqwLRKKZ7b/rWXNg8gsujlfXNDFwp8ubg4xC7/xAlDt3L48z8+hKffh187QzeJ36No4HidWcEajY3PCOz0Sm5AU98Mngsz4nUcLU9kFwTW4jcbv9CNMHt6PZ+oyEwM+sofsMeZDDVLreK+HLlm9h8VU
+     code : |1-
+      //
+      // Base class used to manage a proxy
+      //
+      IProxy is Class, abstract
+      	
+      PROTECTED
+      	m_bAtRuntime	is boolean					// Flag indicating whether the proxy is currently run or not
+      	m_nPort			is int						// Proxy Port
+      	m_Thread			is a ParallelTask				// Task associated with the proxy
+      	m_sPrxySocket		is string					// Socket of the proxy
+      	m_EndSignal		is an AutomaticEvent			// Signal of exit from the proxy
+      	m_bLog		is boolean					// Flag indicating whether a log of connections must be generated
+      	m_sLogDir		is string					// Backup directory of the log
+      	m_bStop			is boolean <critical section>	// Flag indicating a stop
+      END
+      
+      CONSTANT
+      	MAX_PACKET_SIZE	= 4096
+      END
+     type : 131072
+  procedures :
+   -
+     name : Constructor
+     internal_properties : CAAAAAgAAACIyyurbn0wAuuBnE+AQOUfjM0cUQE+yKxNu6CtFFPDHPcu1+IPISpGnTse5lLlSv4bIZqlLyn1+X+9tUi1lqad9dT7Lnnhv6OhtnRNtafoi9Zww7wa3JagEvZdcmJR+t2/maUqmd9orOy+7etfd6tEf273r9NJ6x8m/BdcBvEGRP3CBYg/GTaEyVHnf/Y6KsmVFcra+13glV1KI+zCRVHNfA==
+     procedure_id : 1711441744755197837
+     type_code : 27
+     code : |1-
+      PROCEDURE Constructor()
+      
+      // Name of the thread and name of the proxy socket
+      m_sPrxySocket	= object..Class + "_ProxySocket" + MakeInteger(Instance, GetIdentifier)
+      
+      // Default directory for the log
+      LogDirectory = SysDir(srLocalAppData) + ["\"] + "WD HTTP Proxy\Log"
+     type : 589824
+   -
+     name : Destructor
+     procedure_id : 1711441744755263373
+     type_code : 28
+     code : |1-
+      PROCEDURE Destructor()
+      
+      // Ends the proxy
+      StopNow()
+     type : 655360
+   -
+     name : Start
+     internal_properties : CAAAAAgAAABwHzXBJiMZHsNEBZxevunWSbhtfc0P8oQrrsX4DSO43jAKosDLx7OC9s+i7bCmkyvFAkIeTPKd0HwdPNjQgqQoI17LORb4utq1woI/Mxh5P1Y0nrWKrGsc6yaGt/BEWCElGBpJ1ZtXpCUm7EBrFE9OzR+6Cn9fW2CIpztCulbvEdoic8iO+iRl504Vz4fdWHfn3AFpM8Z1299QSpOeKEUBcuL9ig==
+     procedure_id : 1711441744755328909
+     type_code : 12
+     starred : true
+     code : |1-
+      // Summary: Starts the proxy
+      // Syntax:
+      //[ <Result> = ] Start ()
+      //
+      // Parameters:
+      //	None
+      // Return value:
+      // 	boolean:  True if the proxy was started, False otherwise
+      //
+      // Automatic process of exceptions:   run CASE EXCEPTION:
+      //
+      PROCEDURE Start()
+      
+      // The port must be established
+      IF m_nPort = 0 THEN RESULT False	
+      m_bStop = False
+      
+      // Create the server socket
+      LogAdd("Creating the socket on the port " + m_nPort)
+      IF SocketCreate(m_sPrxySocket, m_nPort) THEN
+      	
+      	// Runs the method for managing the connections
+      	m_Thread = ParallelTaskExecute(ProxyListen, ())
+      	
+      	// The proxy is started
+      	RESULT True
+      END
+      
+      RESULT False
+      
+      CASE EXCEPTION:
+      RESULT False
+     type : 458752
+   -
+     name : ProxyListen
+     internal_properties : CAAAAAgAAAAPDHsooUKar/nmZDAKqkUWzPr8v5XEHJdNhyr1fXBbb/xieVDQjJqCC48FK03cpEMVYaWlvNnlBmwAjwhxCydoH5xhtb04BrOlKwnE1hS2efdUIHxksQudIGdKleh8Lgs1WM51ez0F0jc0+lQdgllESYM6zuWBa3DIq5XQ1CQ5fdxGGYQs6CPqAUxRgAvR4tZq7lasLkogan6r1vteEHzhQTWI7U3Cx2/xLycAAD2Bcbpl4tU=
+     procedure_id : 1711441744755394445
+     type_code : 12
+     starred : true
+     code : |1-
+      // Summary: Method for managing the connections
+      // Syntax:
+      //ProxyListen ()
+      //
+      // Parameters:
+      //	None
+      // Return value:
+      // 	None
+      //// Automatic process of exceptions:   run CASE EXCEPTION:
+      //
+      
+      PROCEDURE PROTECTED  ProxyListen()
+      
+      sSocketClient is string
+      
+      CriticalSectionStart("__bAtRuntime")
+      m_bAtRuntime = True
+      CriticalSectionEnd("__bAtRuntime")
+      
+      LogAdd("Wait for connection...")
+      
+      WHILE True
+      	
+      	// Stop requested
+      	IF m_bStop = True THEN BREAK
+      	
+      	// Waits for a connection during 1 second
+      	IF SocketWaitForConnection(m_sPrxySocket, 100) THEN
+      		
+      		// Accepts the connection
+      		sSocketClient = SocketAccept(m_sPrxySocket)
+      		
+      		// If the name of the socket is valid
+      		IF sSocketClient <> "" THEN
+      			
+      			// Builds the name of the thread associated with this connection
+      			LogAdd("New Connection :", "IP: " + SocketClientInfo(sSocketClient, SocketAddress), "Port: " + SocketClientInfo(sSocketClient, SocketPort))
+      			
+      			// Runs the method for establishing the dialog with the client
+      			ParallelTaskExecute(ProxyDialog, (sSocketClient))
+      		END
+      	END
+      	
+      	// Waits for an exit signal
+      	IF EventWait(m_EndSignal, 100) = 1 THEN
+      		// The end signal was received
+      		BREAK
+      	END
+      	
+      END
+      
+      CASE EXCEPTION:
+      // Close the proxy
+      RETURN
+      
+      END:	
+      
+      LogAdd("Stopping the proxy")
+      
+      // End of execution
+      CriticalSectionStart("__bAtRuntime")
+      m_bAtRuntime = False
+      CriticalSectionEnd("__bAtRuntime")
+      
+      // Close the socket	
+      ProxyCloseSocket(m_sPrxySocket)
+     type : 458752
+   -
+     name : ProxyDialog
+     internal_properties : CAAAAAgAAAAOtBjVDd06JbFiSwIIlkjfxl1UwswCfVjvDOtpof8bUFBeF1cuyPW6pZ24nYYdxLOC1BVMWcD+e7hsL5CLcxS9CtUA1FlWFjnWBtz7+frQy/uUy0Jtez2ODDpZhojPAaJ/n5j22dsKERCrEmoXS54+q7srf00U8QbzoL+/PuMDCb7aGjYLxsKfPouFEk53CHv9Btq/Gr5TZdj/zKuZLMjoA4uxvXpSe/hXm25Ac35aypIygHGaOWCuN3ro0bcARoC94P0CleqYZBydIJdMqdFMJ/kjSaEfA23jRK9zsA2yyDPaLAHv6A==
+     procedure_id : 1711441744755459981
+     type_code : 12
+     starred : true
+     code : |1-
+      // Summary: Method for establishing the dialog with the clients
+      // Syntax:
+      //ProxyDialog (<sClientSocket> is string)
+      //
+      // Parameters:
+      //	sClientSocket (string): Name of the client socket
+      // Return value:
+      // 	None
+      //
+      PROCEDURE PROTECTED VIRTUAL ProxyDialog(LOCAL sSocketClient is string)
+     type : 458752
+   -
+     name : StopNow
+     internal_properties : CAAAAAgAAABNjSJJDsDl/0TJjTJHp+RMomWFGeAXB7IxbLjjNg/PbE7T/1VJGNsAMMrfu6HPMg1j8io6CbbBQ06ORaV7XAWEbJzG6bOkObirmNYGclbtQs+Y0bSpTQS/XpEXJqe9s95oG0XsMEDyiT4DaS1qHbbHxC5J+9QI4xymvadYXTMr5jmBrh8/uePigLeOdiqyWDd5Iz82
+     procedure_id : 1711441744755525517
+     type_code : 12
+     starred : true
+     code : |1-
+      // Summary: Stops the proxy
+      // Syntax:
+      //StopNow ()
+      //
+      // Parameters:
+      //	None
+      // Return value:
+      // 	None
+      //
+      PROCEDURE StopNow()
+      
+      // If the proxy is currently run
+      IF m_bAtRuntime THEN
+      	
+      	// Sends the exit signal
+      	m_bStop = True
+      	EventOpen(m_EndSignal)
+      	
+      	// Stop the thread
+      	ParallelTaskRequestCancelation(m_Thread)
+      END
+     type : 458752
+   -
+     name : ProxyRead
+     internal_properties : CAAAAAgAAACDeRE6wWkaAOmP43MFQJU85bzJ8LNaNHax4pfRTi/oGPzWeoZdA+w6SDi8E8+jry0w657JvJIKw8iW2+va5T26LeRGGK4AZXx420AUa4TBpTvqy5AO9QPBmH5M9blgAYXev4LFAPVMB0rmdPhw4EQEWJT+4AgVpK/lu48E7aJ6+XkFYyYhgBThzgpT7Mjzfgys05Ep2s4O3neHM69N0NlC2pCKK4IWdL9zALAlYLyS8T/ccA==
+     procedure_id : 1711441744755591053
+     type_code : 12
+     code : |1-
+      // Summary: Performs a read operation on the socket by packet
+      // Syntax:
+      //[ <Result> = ] ProxyRead (<sSocket> is string)
+      //
+      // Parameters:
+      //	sSocket (string): Name of the socket
+      // Return value:
+      // 	buffer: Data read
+      //
+      // Automatic process of exceptions:   run CASE EXCEPTION:
+      //
+      PROCEDURE PROTECTED GLOBAL ProxyRead(LOCAL sSocket is string)
+      
+      bufData is buffer
+      bufReading is buffer
+      
+      // Performs a first read operation
+      bufReading = SocketRead(sSocket, False, 1000, MAX_PACKET_SIZE)
+      
+      // Keeps the data
+      bufData = bufReading
+      
+      // As long as there is data to read
+      WHILE Length(bufReading) > 0
+      	
+      	// Performs another read operation
+      	bufReading = SocketRead(sSocket, False, 1000, MAX_PACKET_SIZE)
+      	
+      	// Keeps the data
+      	bufData += bufReading
+      END
+      
+      RESULT bufData
+      
+      CASE EXCEPTION:
+      bufData = ""
+      RESULT bufData
+     type : 458752
+   -
+     name : ProxyCloseSocket
+     internal_properties : CAAAAAgAAACW7U9xgTrjdbnsQYSntWN0bP7yEGQM30v+a/fsY0jmrUxLme9D+T+6hg+YpnhiaEhQl+0yNpQE9mmykFuAE7Jhx8yLoMe3XRDbIz+t5YoPDGMCa2N8E7wkDpOxIJcaNOOQ5i4yK3AQFPF1ALioUVQuJoNoHe+Ab4OVyyr3BVkR/khrTFQlVHErugjK2a1FyW1OUofYv+WIqXwu6+t5e9Vqro0qRid7NBpgp2a9fimmqc1YqAnrtKyUwsq/y2kbYQ==
+     procedure_id : 1711441744755656589
+     type_code : 12
+     code : |1-
+      // Summary: Closes a socket
+      // Syntax:
+      //ProxyCloseSocket (<sSocket> is string)
+      //
+      // Parameters:
+      //	sSocket (string): Name of the socket
+      // Return value:
+      // 	None
+      //
+      PROCEDURE PROTECTED GLOBAL ProxyCloseSocket(LOCAL sSocket is string)
+      
+      // If the socket exists
+      IF SocketExist(sSocket) THEN
+      	
+      	// Closes the socket
+      	SocketClose(sSocket)
+      END
+     type : 458752
+   -
+     name : ProxyRequest
+     internal_properties : CAAAAAgAAAANnoKMQurqckPNSyliNgVS3Ba1XAvwtUfTjBvCTp5a3Rde+tLTyFQSsQW5PgJiKtaqN8ZGAfhN/EQ22orcRs4vM+Ww/oBufYud8LF+iUJFDbU3PhboYKKa4zVgwdbj0qLQqG8p8Wfc4gs1tkIs9DyOMFxPXiruWWC8obWEQlww6GaLEa8z/aWaJGVktvzOvNtA0kH2YgSTAVMO2Gez0mZBnxFlBTczEEevBpfj6/mlckgUOSSHpaaHa/KEcVXdzMhsDHpzUSG3FZOLgzLpBD2vQqJp7RKC1+eMCOMf5I6D91U0qw6go1+hj4BXm2k+LGGZlvzQvWQXL3czJ/ekBDvd8IZGt7/8Ev8P9Nfdfhk=
+     procedure_id : 1711441744755722125
+     type_code : 12
+     code : |1-
+      // Summary: Processes a request coming from a socket
+      // Syntax:
+      //ProxyRequest (<sSocket> is string, <bufRequest> is buffer)
+      //
+      // Parameters:
+      //	sSocket (string): Name of the socket
+      //	bufRequest (buffer): Request to process
+      // Return value:
+      // 	None
+      //
+      PROCEDURE PROTECTED VIRTUAL ProxyRequest(LOCAL sSocket is string, LOCAL bufQuery is buffer)
+     type : 458752
+   -
+     name : LogAdd
+     procedure_id : 1711441744755787661
+     type_code : 12
+     code : |1+
+      // Summary: Adds an event to the log
+      // Syntax:
+      //LogAdd ()
+      //
+      // Parameters:
+      //	None
+      // Return value:
+      // 	None
+      //
+      PROCEDURE PROTECTED LogAdd(*)
+      
+      // If the log is not enabled
+      IF m_bLog = False THEN RETURN
+      
+      dDate 		is date 		= Today
+      sFile	is string		= m_sLogDir + ["\"] + dDate + ".log"
+      nHandle		is int
+      
+      // Creates the log if it does not exist
+      IF fFileExist(sFile) = False THEN
+      	// Creates a log
+      	fSaveText(sFile, "")
+      END
+      
+      // Opens the log
+      nHandle = fOpen(sFile, foAdd)
+      IF nHandle <> -1 THEN
+      	
+      	// Fills the log
+      	FOR i = 1 _TO_ MyParameters..NbReceived
+      		fWriteLine(nHandle, Today + "-" + Now + ": " + (i > 1 ? TAB ELSE "") + MyParameters[i])
+      	END
+      	
+      	// Closes the file
+      	fClose(nHandle)
+      END
+      
+     type : 458752
+  properties :
+   -
+     name : Port
+     identifier : 0x17c0433301e4878d
+     type_code : 103
+     p_codes :
+      -
+        code : |1-
+         PROCEDURE Port()
+         RESULT m_nPort
+        type : 1966080
+      -
+        code : |1-
+         PROCEDURE Port(LOCAL nPort is int)
+         
+         m_nPort = nPort
+        type : 2031616
+     template_refs : []
+   -
+     name : LogDirectory
+     identifier : 0x17c0433301e5878d
+     type_code : 103
+     p_codes :
+      -
+        code : |1-
+         PROCEDURE LogDirectory()
+         RESULT m_sLogDir
+        type : 1966080
+      -
+        code : |1-
+         PROCEDURE LogDirectory(LOCAL sDirectory is string)
+         
+         // If the directory is not empty
+         IF sDirectory <> "" THEN
+         	
+         	// Stores the value
+         	m_sLogDir = sDirectory
+         	
+         	// Creates the directory
+         	fMakeDir(m_sLogDir)	
+         END
+        type : 2031616
+     template_refs : []
+   -
+     name : LogEnabled
+     identifier : 0x17c0433301e6878d
+     type_code : 103
+     p_codes :
+      -
+        code : |1-
+         PROCEDURE LogEnabled()
+         RESULT m_bLog
+        type : 1966080
+      -
+        code : |1-
+         PROCEDURE LogEnabled(LOCAL bLog is boolean)
+         
+         m_bLog = bLog
+        type : 2031616
+     template_refs : []
+   -
+     name : AtRuntime
+     identifier : 0x17c0433301e7878d
+     type_code : 103
+     p_codes :
+      -
+        code : |1-
+         PROCEDURE AtRuntime()
+         RESULT m_bAtRuntime
+        type : 1966080
+      -
+        internal_properties : CAAAAAgAAABNrfT93FzKVunPjf+vjjY9viWl28oe43SzI18afJQ/aJc+2c8uaGFChiI/eMsn8Hupea8yAX7zx0+MMs2iPFWxkR6r3hDp5X28+roinitI9tlADZuPcHLEYSolCV3oppsoNF8zW2vcdEBJxDp8u96+QdQhqbDFI7b4KyF+aAsErd/Xty03YO/akGVszlNTpv7W6eMTbLKmJgrc9s6GFcOXO5SzYbEo
+        code : |1-
+         PROCEDURE AtRuntime(v)
+         
+         dbgAssert(False, "The InExecution property is read-only")
+        type : 2031616
+     template_refs : []
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : Classe1
+resources :
+ string_res :
+  identifier : 0x17f22b850005180c
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

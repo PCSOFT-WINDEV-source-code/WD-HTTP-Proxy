@@ -1,0 +1,328 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : CHTTPProxy
+ major_version : 28
+ minor_version : 0
+ type : 4
+ description : ""
+ subtype : 0
+class :
+ identifier : 0x18510ca000e6cdfd
+ internal_properties : CAAAAAgAAAB2/vstTMCJbS/hlxjFxirSqKvCUuv8YxgpWyl7S3iA
+ code_elements :
+  internal_properties : CAAAAAgAAACxRk9bg8NhM/r5g04ZCNl+xlxI36I1o2tLWmqz6S8vmuMBNrqMpMJRDtBTsm4t/xmctkaO9OPTx7+nhVNmcB7UTquPWaN5LjTzWw==
+  type_code : 10
+  p_codes :
+   -
+     internal_properties : CAAAAAgAAAApCzx331yJxlHa93jMx5a/Mete/EbXt4sZEAtGmMXpeUtm2PjV8nWxUomfpsyyW3whXEgExnrBFRU8v/CNo1+DqqKj1vbrg9V/MRmHi52hMdCa4/qfTvXkb0dsp+wcrF++mp50E/3YbGJ0lc4=
+     code : |1-
+      //
+      // Class for managing an HTTP proxy
+      //
+      CHTTPProxy is Class
+      	inhérits of IProxy	
+      	
+      PROTECTED
+      	m_bAuthorizeSSL		is boolean				// Flag indicating whether the SSL connections are allowed
+      	
+      END
+     type : 131072
+  procedures :
+   -
+     name : Constructor
+     procedure_id : 1752195611373391357
+     type_code : 27
+     code : |1-
+      PROCEDURE Constructor()
+      
+      // Initializes the proxy
+      Constructor IProxy()
+      
+      // Default port
+      Port = 8080
+     type : 589824
+   -
+     name : Destructor
+     procedure_id : 1752195611373456893
+     type_code : 28
+     code : |1-
+      PROCEDURE Destructor()
+     type : 655360
+   -
+     name : ProxyDialog
+     internal_properties : CAAAAAgAAABSfRckWCDN7nPUFSyubnnGOSi9MUW3UmQ79uXwrdOQZoBKegA7t8u6Do96zZg+Q3sNSoJWNBpdEEzlfJAw4qwwE95jmZb4kkLNEno/eyB5P17cmglmiD84h3qCqyR4fMVxxEaNkVcLoEFKqJSfyCOiqTtmHqtrX5xUCxe2zlqTpfZ+76yKRnjBs2KhE1vxHGt3LBGZQ3YlS4/AOuNuVAz6TMTfqA==
+     procedure_id : 1752195611373522429
+     type_code : 12
+     code : |1-
+      // Summary: Method for establishing the dialog with the clients
+      // Syntax:
+      //ProxyDialog (<sClientSocket> is string)
+      //
+      // Parameters:
+      //	sClientSocket (string): Name of the client socket
+      // Return value:
+      // 	None
+      //
+      // Automatic process of exceptions:   run CASE EXCEPTION:
+      //
+      PROCEDURE PROTECTED VIRTUAL ProxyDialog(LOCAL sSocketClient is string)
+      
+      bufQuery is buffer
+      
+      // No end marker
+      SocketChangeTransmissionMode(sSocketClient, SocketNoEndTag)
+      
+      WHILE True
+      	
+      	// The end signal was received
+      	IF m_bStop THEN BREAK
+      	
+      	// Read
+      	bufQuery = ProxyRead(sSocketClient)
+      	IF ErrorOccurred THEN BREAK
+      	
+      	// If a message was received
+      	IF bufQuery <> "" THEN
+      		
+      		// Processes the request
+      		IF ProxyRequest(sSocketClient, bufQuery) THEN
+      			// Exits and cuts the connection
+      			BREAK
+      		END
+      	END
+      	
+      	// Waits for an exit signal
+      	IF EventWait(m_EndSignal, 1) THEN
+      		// The end signal was received
+      		BREAK
+      	END	
+      	
+      END
+      
+      CASE EXCEPTION:
+      // End of client
+      RETURN
+      
+      END:
+      LogAdd("End of client " + SocketClientInfo(sSocketClient,SocketAddress))
+      
+      // Close the socket	
+      ProxyCloseSocket(sSocketClient)
+     type : 458752
+   -
+     name : ProxyRequest
+     internal_properties : CAAAAAgAAAAmEFNPjFRo628A4NPJpGinnXF5H2CfLL37oFI+iOXbaO+SzUjQP3/hSFmqp4yQHfoOUkUJtPqxy9i3b/I/zu6ksinIg54+QOfA8sTRe3lMrEFplFRKxeuyO6XYPT/w5gk4N7X/XHkLR1XZK7vmwdNOhojRtXLyGU7gh67b1AbVMM5oJ2wmkD/ER+1VEpA3agFMhOOCdoZO0o3AiwBOpTIi5ZB0DzF5ZKs89Ia6u4dAslOeKW0rIAp7x9hiBhTP8tA6E8mBQXN99mh2n16TdGuREHbNvbbLv+T3f+DDLV9Pl3Rj8i7NSciw+XIGQ1eFHOcDh86/FAFvyQjLo1Pkpr411eUCNgj3QEVitWqKL4kKzrgsj5KuZj4kOLhTH50K
+     procedure_id : 1752195611373587965
+     type_code : 12
+     code : |1-
+      // Summary: Processes a request coming from a socket
+      // Syntax:
+      //[ <Result> = ] ProxyRequest (<sSocket> is string, <bufRequest> is buffer)
+      //
+      // Parameters:
+      //	sSocket (string): Name of the socket
+      //	bufRequest (buffer): Request to process
+      // Return value:
+      // 	boolean: // 	None
+      //// Automatic process of exceptions:   run CASE EXCEPTION:
+      //
+      
+      PROCEDURE PROTECTED VIRTUAL ProxyRequest(LOCAL sSocket is string, LOCAL bufQuery is buffer)
+      
+      bSSLConnection 		is boolean
+      sRemoteAddress	is string
+      sIP					is string
+      nPort				is int
+      sFwdSocket			is string
+      bConnected			is boolean
+      sURL				is string
+      bufResponse			is buffer
+      
+      // Retrieves the destination
+      sRemoteAddress = ExtractString(ExtractString(Lower(bufQuery), 2, "host: "), 1, CR)
+      
+      // Defines the port number
+      nPort = ExtractString(sRemoteAddress, 2, ":")
+      
+      IF nPort = 0 THEN
+      	// Extracts the port number from the request
+      	nPort = ExtractString(ExtractString(ExtractString(bufQuery, 1, CR), 2, ":"), 1, " ")
+      END	
+      
+      // Correct the port number if necessary
+      nPort = nPort <= 0 ? 80 ELSE nPort
+      
+      // Defines whether it is an SSL connection
+      IF nPort = 443 THEN bSSLConnection = True
+      
+      // If it is an SSL connection and if SSL is not enabled
+      IF bSSLConnection _AND_ m_bAuthorizeSSL = False THEN
+      	// Error message
+      	SocketWrite(sSocket, [
+      		HTTP/1.0 403 Forbidden
+      		Connection: close
+      		
+      		
+      		
+      	])
+      	
+      ELSE
+      	
+      	// Defines the IP
+      	sRemoteAddress = ExtractString(sRemoteAddress, 1, ":")
+      	sIP	= NetIPAddress(sRemoteAddress)
+      	
+      	// Creates a socket name
+      	sFwdSocket = "proxy_" + sSocket
+      	
+      	IF bSSLConnection THEN
+      		// SSL connection (time-out set to 10 seconds)
+      		bConnected = SocketConnectSSL(sFwdSocket, nPort, sIP, ProtocolTLS1, 10000)	
+      	ELSE	
+      		// Standard connection (time-out set to 10 seconds)
+      		bConnected = SocketConnect(sFwdSocket, nPort, sIP, 10000)
+      	END
+      	
+      	IF bConnected THEN
+      		
+      		// No end marker, read as long as there is data to read
+      		SocketChangeTransmissionMode(sFwdSocket, SocketNoEndTag)
+      		
+      		// If it is a GET request
+      		IF Upper(NoSpace(bufQuery)) [= "GET" THEN
+      			
+      			// Extracts the requested URL
+      			sURL = NoSpace(bufQuery[[4 TO Position(bufQuery, "HTTP/") - 1]])
+      			sURL = GetPage(sURL)
+      			
+      			// Corrects the HTTP request
+      			bufQuery = "GET " + sURL + " " + bufQuery[[Position(bufQuery, "HTTP/") TO]]
+      			
+      		END
+      		
+      		LogAdd("New request for " + SocketClientInfo(sSocket,SocketAddress) + ":", ExtractString(bufQuery, 1, CR))
+      		
+      		// Transmits the request to the server
+      		IF SocketWrite(sFwdSocket, bufQuery) THEN
+      			
+      			// Reading data
+      			bufResponse = ProxyRead(sFwdSocket)
+      			
+      			// Closes the socket with the server
+      			ProxyCloseSocket(sFwdSocket)
+      			
+      			// If data was received
+      			IF bufResponse <> "" THEN
+      				
+      				// Transfers the response to the client
+      				SocketWrite(sSocket, bufResponse)
+      				
+      			END
+      			
+      		ELSE
+      			
+      			// Closes the socket with the server
+      			ProxyCloseSocket(sFwdSocket)
+      			
+      			// Error message
+      			SocketWrite(sSocket, [
+      				HTTP/1.0 500 Service unavailable
+      				Connection: close
+      				
+      				
+      				
+      			])
+      			
+      		END
+      		
+      	ELSE
+      		
+      		// Error message
+      		SocketWrite(sSocket, [
+      			HTTP/1.0 500 Service unavailable
+      			Connection: close
+      			
+      			
+      			
+      		])
+      	END
+      END
+      
+      
+      CASE EXCEPTION:
+      
+      // Closes the socket with the server
+      ProxyCloseSocket(sFwdSocket)
+      
+      END:	
+      
+      // Checks whether the connection must be closed
+      IF Position(bufQuery, "Proxy-Connection: Keep-Alive") <= 0 THEN
+      	
+      	// The connection with the client must be closed		
+      	RESULT True
+      	
+      ELSE
+      	
+      	// The connection must not be closed
+      	RESULT False
+      END
+     type : 458752
+   -
+     name : GetPage
+     procedure_id : 1752195611373653501
+     type_code : 12
+     code : |1-
+      // Summary: Returns the requested page
+      // Syntax:
+      //[ <Result> = ] GetPage (<sURL> is string)
+      //
+      // Parameters:
+      //	sURL (string): URL to analyze
+      // Return value:
+      // 	string:   Requested page
+      //
+      PROCEDURE GLOBAL PRIVATE GetPage(LOCAL sURL is string)
+      
+      sFile is string
+      
+      IF StringCount(sURL, "/") >= 3 THEN
+      	// Deletes the host name
+      	sFile = sURL[[PositionOccurrence(sURL, "/", 3) TO]]
+      ELSE
+      	// Root
+      	sFile = "/"
+      END
+      
+      RESULT sFile
+     type : 458752
+  properties :
+   -
+     name : SSLIsActive
+     identifier : 0x18510ca000e7cdfd
+     type_code : 103
+     p_codes :
+      -
+        code : |1-
+         PROCEDURE SSLIsActive()
+         RESULT m_bAuthorizeSSL
+        type : 1966080
+      -
+        code : |1-
+         PROCEDURE SSLIsActive(LOCAL bSSL is boolean)
+         
+         m_bAuthorizeSSL = bSSL
+        type : 2031616
+     template_refs : []
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : Classe1
+resources :
+ string_res :
+  identifier : 0x17f230590010f3ce
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

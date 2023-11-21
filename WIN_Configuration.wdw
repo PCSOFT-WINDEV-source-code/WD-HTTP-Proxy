@@ -1,0 +1,310 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : WIN_Configuration
+ major_version : 28
+ minor_version : 0
+ type : 2
+ description : ""
+ subtype : 0
+window :
+ name : WIN_Configuration
+ identifier : 0x28510c9e02f0c3eb
+ internal_properties : CAAAAAgAAABjekGFdJr3zROxBpIZDXFzm/SpHaBh17lty9D8ZuE8cGbBubb868WA/OeW3R5oJE22+TlNA+f42gsUgTK0KS93riPHnchMnvXhFIFEUVoDAA4iQEquovrUNidNuOupz0yEGWZjhR3GnOo2lx9ufeUNQgUq8ACAtWllIKWZOQGlBNH5ldSmsrg+d5ARAN2+aeCFS5Cc7+QMXZUdgPwZtuFlVDniXRWLBpITSttktzgWrBa3JT+JSK64Eh6pFrVXbkjO6hSKiWNugDz+ovHA7vY99WzSqz8b3ch/54SEXrpoeen6jxnIVgrvPeV1Jd/7+V1EF6uTB5gfZdfpNdPe2prPazGInYS4Eny5K7HwoTSMtlib3ubENpJJQegeS4Le26DwUxia/jsdT2xRwdIWbRhTpN3Eho1Z4Pkt33iU6h4Oop4Zo4vIaRUHQBpg+yjBjkQmEqqOXzOik4KdeM4WuAMOjHI0ub5VrQkuwUcrWkcRM95yWTPGfdT0E7kXMZFOZtg95oLq01h/gIu5WTPbDeosVZxIBVl1dfT7BlrLOQJ9hRbl7Xe/4n9eHcbeK6KQb2DYWoxwcocX2bBpZzPNpw+7/iq1yYjAR6+zswvlUaf0SN51A5L4kf7woRA8m/YRqmXNXFf2iUV0Mi5l9Rf9mUr0zz4Pd4YgwxIWUH+8nLysCnlp/fQe1UITCHIIrdI0jaJ+QIEKX3m6qopGlcMF4a5kP0/RlT9/LM0+8iQ4CzzrM1yjCwbk8E6SqDpwP33W86OxvLv0UOimtYM9QF5Ba+Aon0uxO1k0rhPoH6ztMHEla+yWKpNvk7ZgSY+TDUsLsI8cQP4lu/mKer6B180GAizovQbHzlB0ivuKYw3HCxmglqThGNhuv/Fm6+0L8MGpcRxbC++WQ3cDmDdIPKv3bYYNyduLhwN7CT7bHnuPdxCxtUqCNNSsv6EriSEG+AuYF18mhxZHSm0FmRgRKoDApOwyuYKJ+gYvEmKrhw==
+ properties :
+  width : 334
+  height : 258
+  widthClient : 332
+  heightClient : 226
+ controls :
+  -
+    name : STC_TITLE_PROXYOPTIONS
+    identifier : 0x28510c9e02f1c3eb
+    internal_properties : CAAAAAgAAAAihVbkESzQ3oNueOYz1bM16EQKy0NfvWZtVHVsrCjl93bl7pX57fiZv62/tbitayQ8hGgfbEPJc4L5OKjRzzcGJQrXqVQpO7k5Y2Ru5vYRuP3FeS0Y7bZelhbMbs6VnKoujGF6RrD/qCjSavKypg+4rFWNtsc5szjfk7zWyMisgSTD1ZPt4AIosuXT1LuUrQY+LF2ccDeOPjMD0V23Sr07o9yP4oADqB+S72XJp7YeiLFdgC2FdswhB2otoGJBBZNYVTyYHGK1eG8WBZpnbozp//RwqK5R17o/6R1mqsmeFXgqcBQe+VvcLl36ptjsP/A0/4bvxpolRCQA712Tkb+wIx/gdhJ4Oeso4LYRUlPHZN4JbRWOBxJ8KnsLgCstjfRKyrjQP2y3Scu5DZCsuQhgmti5bMfSuKonRJRY+vsSZx2dAwoKC/N3MyKgE9efTiuB6xpmbmaem3at88sjUOnj9BO+FTlLCObUtR22BjMHOFRPTnWcwA3eQngBBIWC5czqUN2IBMn3Ag08kok69y0pFHsZsYU=
+    properties :
+     x : 6
+     y : 6
+     width : 320
+     height : 59
+    type : 3
+    code_elements :
+     type_code : 2
+     p_codes :
+      -
+        code : |1-
+         
+        type : 18
+  -
+    name : EDT_PORT
+    identifier : 0x28510c9e02f2c3eb
+    internal_properties : CAAAAAgAAAD1WhTz9JECVh9+UmepdVzV+iYzJcHB9109JpWAh2WyzlxnB+VyRC05zxZQy9XUxjfGHRbyHmpqdWiEW4a/TUTAqoMWbqBOOhGQ5ivaE29bB5E6P0Kr5HdmUqsmPYlmhIdLo0J7AAxkRAsShhe181rHWIMUqB+y5RDzVbU5VKyln326vrU8TQZrN9LqvW7tDZXwxgYnrkm3vB+95B9gOOxSOTLXJdUux7C+xzJT5o7JIzhvBS6sP9DQEN5a1tYAIL3YnWYtjM795lPHZ3Q8sPajV+f67tpqpcx1UuXajn49PQkpzSpjeL2z3NBLA2R/pvkG1mAwvZdt+TFDVHFJB/AUbleWTU+KpGhMKgiHh3xJ6ZogryHijdSDUcLZu6cAhggJPnJOxGxAvxzaPMp9re/lsMs0PNgswriZoyIwjvD7xrmn4Wg3WLf3BIQyRrpA5Amaf+CvYPhsRxcjXrKklQobvBPQlLCzgByT5fSWyfKkrjp9Vfg75aL7UktspK59oN6lNB24ma44oXyTH+ZTnJL0p9bszcW1Wyohbn58K/7KACS7LAdQvKJA7B/kejkav18F32zSzEvWoRjWEf1tjQWGBx3moFavEVG+Dl/11+CoDMt5zwGSY3Rp4e/S9OGp4W0t7mw/O1gCQYwibiQyGOj9jLfeP0pgY2qQGv5unNfCgn1B7fXZCV7+5JUwXQffLDiofyY6vrOtI0VguDLrPw4du6tB1jkAutan3vRNN8Pald34qHc7EXs07Is5VrDpI6S1SBux69U5qg5zQRqWbFhSsapI0AIV8P65Zz9ijEXfnbHrKq8TI2uAqach2wrSPM9BKeiN8v0lhHoqNZ6G08cUQZWLbMfd6ChA1l7Ev2N11akrlBgbWmMvG+N9VD4AF6dWZUfWgnbMl+E1/Qka/fq+cXQjS2zFRt0SLlJdT2HzwbLUXi/kcPsgXlH8k2i5LaIRJ8nooXe+WEx2OStnjMp5vLw6PbBoSkhXPENNQb529DyqhMrIpk4Y1wuRZuWNrG7aaJmHxwDtkhm1Sd6r8bvuXHO25YSoyJlsHXHMSFEW0Mcj1eUH0KyGAAVEvx4eMQvlDUO92b6ebD0edQc7DAKEz0kT0vFMtAfMnnjx80S5lE/qI36TeqF9s63yANHwgiYphIIv09sK2S69VYPZmg3qr6S23VkOwz1ZJZPmQpv6S2KoYxNbHywxsZRad7/rSu15LdpCU2QF3cRhTHFziodFlBgopmg2YS5KlM8chtXhMbvkqyiVuHK5kYptmYvhJdok4CQbeetP+fNd9xj1ZlSGxsFOcX7U6D8C7EgaqjcmMIWW3z6V/Gg/yjJ/xnQAWfCeo8P02pEF6xKRIugqSo8zhrcVPGVsWUuFjUCVze1djZqyhUlj9Vmxc+O5yl3hUY0Zy5VogqwCc9BQnpXIJA7kZQ==
+    properties :
+     x : 14
+     y : 27
+     width : 82
+     height : 24
+    type : 2
+    code_elements :
+     type_code : 3
+     p_codes :
+      -
+        code : |1-
+         
+         // Checks whether the proxy is currently run
+         IF gclProxy:AtRuntime THEN
+         	
+         	// Disables the control
+         	EDT_PORT..State = Grayed
+         ELSE
+         	
+         	// Enables the control
+         	EDT_PORT..State = Active
+         END
+        type : 14
+      -
+        type : 276
+        enabled : false
+      -
+        type : 277
+        enabled : false
+      -
+        type : 278
+        enabled : false
+  -
+    name : CBOX_SSL
+    identifier : 0x28510c9e02f3c3eb
+    internal_properties : CAAAAAgAAAB6ClFFO9j94DQbLT2QxVi8ndINFEQBm2kVNO2rqLeocwJPf6hcT9XfIuMvP9P/Q5rY0ECnXp6UYPzlbJz0Mkv6tUlc8PUHK5f4h7TVmYQGLu6XCE15O/opElzVl2XfhH1q6Nsb8ZZkLJG8Fus93DgApJJT4DU6mZ2x18A0I1X/OB6vl79tx07rY7GFsqHcFiJmDxPKlxUn5uEoZIEuBmdR7xgtu9lxGJFG+oEPUlEKYHa+Mujx0FnXxfzq+UoDcwgqVuPTtaFaD9/EWs5wzh6+RGG7Qw7MO+SpVX/xEA2tZdSBfq73sq/pKESUFE64tc8hfBanDIFBHeC1cOjQ64dURQv+Z6nEEoOFfA/TncLpGsHnjtEhsryYJknV/xadERqA6J7zK3MFgKzU35okuDWJqBX1ZtswstZF5MxPtvItXxbJSpScPlsCWly2UrvTpUnBVR6rLLUc9VKcr3caxnVjdF952OUFJn1EGUpwCeIM1RN2RNu4NIDQil95+MdNZoYBvr/P9RJEhhraZKQp159s0H6m4Wkrsb+y1Np3b8w0dsxUDeij1P/U5q+9kGPVKWd0NuoMY4R2wm1b2R8kXOphZUbs7NNcPDFRBojRzhrbni40nA0XiCBisFGfUSBYBoDx2VOoqRkEd3Lgq5zaLyBjjKsSXUx6Q34zsRVkSnvgNEMHd3k4AQ13Dg4Z68UmMopxOvFFkZCqT2GCgu4hRcoXpIGqvjV++eVybFNWOgPiY2et3uBHDPuvgdvlvThxO+cZj018JSBv2CwLTuCRYxSjd1c5k54juPa+FLC3MIebFx+lo9z3jQ/ffS3BFKi6F3JKG24wuKJP1BO6hPo0cbDlGnYuqeYGMrNhyofh30R3Vdlk8s1rXW4U2VAhNROWQmcDqlsSZck1JMlGLMCMM1glrnrbJUySP1A9Zi4clhQnw+nBo7tDsXmR2D4BFHK9aXRqaobN8WQBI1Xkmodixr5PwApLjEdskHS/KeaIL11zwuFXfpFci3eWUkA6kFbN/0vbwnacN9u8Ci4VEuDnwoZVZ3jsp/GvHTLfN2Fm45yoP2elDT1WEUorGXEDpH4DwbBil/Vh2GygK1/lb8iW9KXvjPiFCcl6GrtNqy+hPUFPXPGHkffotoawBvdecxu4dB6SbfE=
+    properties :
+     x : 102
+     y : 28
+     width : 217
+     height : 24
+    options :
+     -
+       internal_properties : CAAAAAgAAACMQcxEcOB8UGBiKt81fnqfggsXQbSAq8gOc/qLm9CX063EUw4NM0hFQuXwlIU+pDwttiuDSWKSCVVFh9zOaH2PHn5+lvHpWYej6FV4DYrr03pPzf3eY+w3xnUoqN0DULaUkTTiKvCdofr4RSAEi5/tbHrc3LRwrmrsZxIJOZjyeVJHmcQEW1osQl8Ywgew
+    type : 5
+    controls : []
+    code_elements :
+     type_code : 5
+     p_codes : []
+  -
+    name : STC_TITLE_PROXYOPTIONS1
+    identifier : 0x28510c9e02f5c3eb
+    internal_properties : CAAAAAgAAADXktq3dCiAO6LdiGM5YElPgl2mwm/se3LmlEhxk+fo9uWSOD82zybaJ6TUcyAAqERigBfWEFXsqrV9VOx24k9qPJZOvrr9y3LhRFbQIZUgb51Kz3bR99LABpCXiQO5oo4Rg35Zi5ZL+q15bWViFkhMeCljojkZXg4cPnQKPheRllsdZ/poAA9OE8m6Pv1qQlsWydPKpye68CrboNY9q3tW4YMfHvwgcOAGlFm8PbBgVwG/kLyMug0W8II8K+nvPKpbdFfrnK90NBxFFc6iSWcZNcCuobwtZx3PBrVaFd6oMRFKFNq885hOPedCCMPD4xel4l6uLwaPImzFlYgTAf54/XqBDOeEHL3HxQM6UNF6etpbdwEMDEIAjbN+n1YI22HmE4sJySBEGGop7BOALUyVQzROBGfUqC9KKf8oLLXpnB+sjv6NeGmSd3MLsu59q9SOIfoMJYWzUaiOY1RudSYpkWTDvHbjFDAtrvNnrrXlHvjaUg==
+    properties :
+     x : 6
+     y : 71
+     width : 320
+     height : 118
+    type : 3
+    code_elements :
+     type_code : 2
+     p_codes :
+      -
+        code : |1-
+         
+        type : 18
+  -
+    name : EDT_DIRECTORY
+    identifier : 0x28510c9e02f6c3eb
+    internal_properties : CAAAAAgAAAClPPq9aW9y06zum6kfVEVXNwWzPt2WEJf9rNfbh3oHlBrs7lLWO591hfOh3svM7u/GN4+PWbv10ySYLnFEZ1OpY/jO6y3os7OqSxZRSjEduDW2SoEGdDgcnljBK1eJQiq3j/iZXEBoXdqVMUEGxdlJs9EHDiQ8Z/ITZ7Cbm7QcRuYAm7r/kTwsw0ewndi1gWd+xA3jczXGFTSY+dnnHlJnO5qa4J+swqa3wFSLBGN6CwAnqPcTogCsU8ZS4iYquO3ucm5CFVn/IZwWFxkcO2NP499ouwHN3jjgTNRktrnJ1EaX0UJ3r+dovIFS7V4cwNMy++V081+90HkLRpyixpWO8n4Uw1qaxX2KZHTbLtD0P4VhFEVhA0++ojvLJSE1tNymerIQXPd4nLgEBhrc80ws7ycRJ6/DTOUuTasTSCm+IL37j+yiKSfrxJgOMYxW3iemFuCWzapXbH7x2PMDORiIANCUbqgJBPhngHye2VlJQG/uKX3kaqXlA/ucTS80ozO5T15Q/Lk7obqhrFoquKohYqgDtJc8avd1Yhr+Jdm1DE8z+vq+9Ji6yLtLmLAhIJKzgVyEIL3KPG6NrMH1YeetmYdQgf1pquAf7KQKqZffem3erjTUrm86xbXpytYjir1Yudd6/blperd7bSsd9ed7nq9l2Hc+tUSYYgHRbYS8LbuUk5ZIJyDuTI34UlcTjNLd+TaOfVIaexlDpFTlJbvO4wWpeLxwYLwUoPMhXiibrROFu9VLF26IRd8deA4iem9FQV7pPOQXk7ynPpzCuqNxW5jIswRilvm0XI0L5SiXDdWnt9CW1uQCXRbxIifdso+/YzKYPpIBsmlGbJwS0SsHWHbMR1e6E/snQleA+K7Dtc8g0Hc7hcUc01auklQ2OA70FPzm4TdDsmJ5XzCW2QhL3tqgd1VM+PonsNs75bIJ5afr/VGdSaGx4KWuuOBaqb765hF6i4lZrzdB6bog00Ch5hTE8eqNx/YcBp4hpr5lzTiWAmrcpsQk8Rv+mLrJKZYfQGsGB2soTIHzxbB6JAHogWNBffZ1bVeeltHTa5eVAFXEf+M5JANa2bH+fZJ9Le2IeDEJO0XAVLn9deOiHDnT6g1j4kbXOBX+sdUIoUHTEZ7aAY0cM/NxllIIW/YztNg4EzQCRSAl8CSHJhEdG50M2Kg9kjWBWHx45y+Gyc1wVmtLC1z9vUoE/4SCXPcbM42kqUnIY6cGHLfYUeZT2OD565FVftEeof3G18e9Oi6xq43R9AKmpKIVGH6AT4jxYcsb+LNQOAQbQ2uahk4rxT73rj2anKpP2Hr7jUq2qKd3veDNSMeZVGmyIF2JNIC/9CJp6CLh8eJ2fXmIYuRiH8yO4kxQCnjRXKapx38mqB6eZoVy5VaCeUrgx7nNA6xo3mp1BeNYNuxA7dsMYsrILpObtoJYm6Lnql/bedcyIrj+pJ8YAtKIITdPdNM4qSSP
+    properties :
+     x : 14
+     y : 157
+     width : 262
+     height : 24
+    type : 2
+    code_elements :
+     type_code : 3
+     p_codes :
+      -
+        type : 276
+        enabled : false
+      -
+        type : 277
+        enabled : false
+      -
+        type : 278
+        enabled : false
+  -
+    name : STC_DIRINFO
+    identifier : 0x28510c9e02f7c3eb
+    internal_properties : CAAAAAgAAADiJWO9nf7GVZHZ9cpkU9LycR8SSGx2utHEyo6cIfeUbdyCfLGauBGtj765NNB6WxBR4d8Z+RiKcVsfurNbkkpCnGqtopHWb5l9fBFahUGjdP66je+AkvNbCSHemWCv4ZDFnM1r5HU8EU5aW5wwfrzBowZ7DXHmbAh68WCexILFuKCOYjHYdP7W7vFDkwR3Tu2YNU+pBmaAuYoUtXbSJpzuUxaifzTllygFiHs/k6GB5EctYQwPbmzArEiCL0di8nq29dSVqgfWijwiaO0wepbZGlTvF5fLM1vgqtU/1PE9LHHQNGsdcwgDk1F02gcNqNRZIr82P/YKqPr1GyNP6WQofV+cIEvxPXgeWxVnn7knZ/E569nW5XJaVAMcSA/MAsaPt7XmXytRIE0U8/XbvEzBDneB+ZnFmAI0unoSlQy4SSJiA1LjM9v0m8yEU+mtE7qtJCrS1ZBQ7MPm0+c/7cTElNFV7xfpBCdBxEabHxgTGD6x2vhbrD88DPY/vT1RlqWU8zN5fiZIz70TdtgkSev/GPV+z7WAY/ShYmU31GAHBOQr+lw9s9oZ6aH54E2a1WY=
+    properties :
+     x : 14
+     y : 128
+     width : 304
+     height : 26
+    type : 3
+    code_elements :
+     type_code : 2
+     p_codes :
+      -
+        code : |1-
+         
+        type : 18
+  -
+    name : BTN_BROWSE
+    identifier : 0x28510c9e02f8c3eb
+    internal_properties : CAAAAAgAAAAELy2oLh0H+m2wDOOUpzGUjW+11b0A+K6DIQJNDJROmW6Xw/B1eH2NSG7elVCIhAZg8ZSzCzAkUXIyRdv1Xutg29/Qg7aAUc+TfHNr1mBY0gzcxZXBZ4reIYiamut+zj9J81ZnHlNfoBrzoHxoTVA/LJUzrMhGGADLpOfFgAvWxSUJyJxGgkfMuJYVbBObcBl1Wwsb6GStlGIHFI12dJ0Uew7boeKAncZ3Dl5VIKSZ/RZ6UcDsZfneoIH4mN4hLzP36zOgV6hvD2bhsYa89R2s/l6AHXVMnGDFx5riNT+mHP/pAN9QWybtG8rBxS/LKihjgnRzz3dpWfk0jXd5AEVDh2AMleWodsFWM9ER1gcelm0s7aN9fELlh3cdGTaQjRCXe4TkDjvB7iOl9wGrHXLQwVVxICeHnGzTWDWfathaKqom4v68zMPITY5waDkqqft1uA71FCY2+rLmE34wSzhedfxhIRsVcfyZPL/62pH2WjvNMeMCXpu44a0L5vq7v8nNHVQYxNWDC8xFthtCFYSp2T9sbXdwYhhVeK2iL6loWGmaNkZaR13j2N0+UR8mVUnx5SbKJ0hB0om8wYUszSf4q0FsSW0ungo80BNeycAMF6KQGPIyCoEz3Feh2T/38bsPoYbyJIGClyBSM0bHyJdlBXmv9wBcFUi5UG+1ZYaOC3CApb/f0qe4yUAE9oaXgoEFVbgA7oEbF9nlryupOKHJtthEd+rwVPnAHyRFiIGS5zprDFVhZ9jWPJrW+82rNlTXjEL9IzVL4Lc2zbQ6uf6xYbAja5lFSUxVAhyRQNfaJLL/5j/O2DL9HwYVunJuueYuJKj3PfQhMc7z3YIRQFO4a9Pzl6M=
+    properties :
+     x : 282
+     y : 157
+     width : 36
+     height : 24
+    type : 4
+    code_elements :
+     type_code : 4
+     p_codes :
+      -
+        code : |1+
+         
+         sDirectory is string
+         
+         // Opens the directory picker
+         sDirectory = fSelectDir(CompleteDir(EDT_DIRECTORY), "Select a directory...", "")
+         
+         // If a directory was selected
+         IF sDirectory <> "" THEN
+         	// Modifies the directory
+         	EDT_DIRECTORY = sDirectory
+         END
+        type : 18
+      -
+        type : 161
+        enabled : false
+  -
+    name : CBOX_LOG
+    identifier : 0x28510c9e02f9c3eb
+    internal_properties : CAAAAAgAAABU38zprMKt9LgphTMpP0Xa8HLpIeRGuq0I3ns5feO1Tq0/0e/uwsbhfAy4Td5V9OFsfMn8iy3XyfrmeWKoimtmPfyiQi66Z4NOiPyyztkhO63cQmy3QqJHarqUJ/PisWUCyoYHg8I7SvUMXs+/B9J37RvxMrVK5rIhSWkXLmpQPQ5J9wdnS0XNCC/b29DirvKBkZcBuSOh2crdzQN5Eo8IG4+ry2F/2WtUKz1C1u3jvC0yZkRvLs0OS4YHmVeg9/4g1kkJAUQJ0dWUIXbUcOmkY3cgi96wYm2tWEhyfcpeSdt8DFX+8tmxl9uKTpDU2q/fsYucdvueafyaeLNJOszeTC0Q8nwY3CttZqaTa/y9YOimu/imteP1M7rkWDYRQfP8Q0uqVPduKlEYYKTsMm0PWD7NW8vomiWycdJ6zAbjqeWgBrAP50/bVmCyVQddfZPwaUu8AvcMgiAK6SJwT7YVnsLRAzSkblbVurov/Ys+GSv4jh9OUeTx6tzsTlZilTrMERAu1u3fXsUOsFPK6tUOOrI6xBQZ7582pIW4rmCjATNsj3eR88VdhLD5+ssMuir1Oyi0gCdJP/jWD77NFqSM4R9SbmmUHkAF6loN1jmSFQIfBIwQQaXMMufdpJ7MMcJrjcibLTMZS1FX7zJTEzPqjvfs0oyQcTr2zvTLLehL1ecRWYWv5jtZT0yNB8/IAYVZdv++3byouTOQdADvGcpDd+GQXseRyYMBEiTjTOEO8oX2ItwI/2zZR6A2f3Rszw08vatdB5PnQeo2VT53zK9HyhSBNP9QmV2VnF99gukyetb5waDLQ7VekNHUT9p8CGoyrvMTIDYFnUAowLZyuqZ9yeAKBRpnlCIn+OOpNJgAhdUq2f1MB7G+76doBrvnbw+WIlaE3PUUcNWnXPWFo9xjadbPGp48fjuYzXGD+egCVsY0e7zAIjX5oDNYqw79yUjfx2SifyJ1yQ819PWx9uZ2SCsd6/AMngW3vwPEmLlVaFGHEA8DbdReaRFHVUD/BxQTJ9IKMeA71gGPz51400s5SDRV5tUM2kwFNcAzLE2luXlG7LJp7+rtPXUSnrENxBjkgicjGJbPi5KEXDPDyfJ/vZNl3/PqGu5/Mfq6jLikvthZmgkXSSiewGhBpCcRLUHQ
+    properties :
+     x : 14
+     y : 92
+     width : 304
+     height : 24
+    options :
+     -
+       internal_properties : CAAAAAgAAACgTO/zTJEDbb4igf3SUXOPK67tWLIl6XOC1Dh0WmwtJLYcmeRSqUfdAZstm3LBILhHqVhq27s8iHk+gciYTpm0zTzMo0IRMkolpRmyosuj2oSV4XgVMEAe3pAKdJyo8KUAEd4hFCJ2oyN8KLYQlhaHsxU7z4NrFqPNvd9q2GPho3RD17ZPsjaZpd8Juy8=
+    type : 5
+    controls : []
+    code_elements :
+     type_code : 5
+     p_codes :
+      -
+        code : |1-
+         
+         // Enables or disables the options of the log
+         IF CBOX_LOG THEN
+         	ControlEnabled(GR_LOG, animFadeIn)
+         ELSE
+         	ControlGrayed(GR_LOG, animFadeIn)
+         END
+        type : 17
+  -
+    name : BTN_CANCEL
+    identifier : 0x28510c9e02fbc3eb
+    internal_properties : CAAAAAgAAAAYSTIOD8ebw8AGhb8O98Jeqxa/NYWTVOFTdQOKHKMO1Bl3X3uNo5SWpqrG04rq7j3DCxBfkhcnm4SIwjTW3lUWMN7e6KG4/n+nuMtBs6Pa8uIoFWoAm1CydGQF9oL8zOv5s5LEH0T9IVQCD681r9RUFOq7jxg4BUZT2sZVoCivHHYl+iFup1BsnhmSU+Ij/xkk97p42DzOq9nV8tpm+Do0hyNOo7/C+d3VcwQuG7Vf7hiF3zlcQaxU1jEnbVfrQZR2u4us3Jghv4NCxE0/k+C5y9I9hvG65XV9XG6P2oUxDzgHt6yVYtA20iA4bgpmLY3iOGK1d9sW0depZvVeIK/3TglYwyRWnwYrxrdgV5qhfQ8ylXvf/sPWmw71RL35fNRieq9a8Ons4iOSxOsgf4mRFsGEI+MG79GuXg9mXmyWxENhpIfGqUirkpLCDJe2W549LT5DL+GyXWuF2VfP6HJ0MJhO9PMx7djgzCVbNgMak8wMTTPuc9x9dLnwESi2Y7uiS+Zwcx1S2u5PStOdMohI8zqo9VqS0VpuDG99TjKTN83xdF1zGJ0f6aHcXr7bfpvRW+zLIWIydWejSUsqqmdSVkCfZk8/RaiDjyYJcnsFMcgLDuRx3xMUcJBopZv4BxglAjSqHbO/lkaHtxfaa4RojJkSqw57p4qA8G/Uk2xHTzGyd0LFj/aSaFhbEMre4CYEDUYiCWi5hy8a1qgfQ74Q/VkD+4YQCTUJcX66iQt4s1c3qrwp9rMY+sLJmyJcvnQYQqcyacVruAI0Ra64gXZy3iTnhLFGzkLods+CilM1g6MNCKpJvYO+PJDJmDNri/fcDd0CbwtcETOQDWMAEPUHGg==
+    properties :
+     x : 246
+     y : 195
+     width : 80
+     height : 24
+    type : 4
+    code_elements :
+     type_code : 4
+     p_codes :
+      -
+        internal_properties : CAAAAAgAAADQZyvpRjJZltgKBVFD+SKMukTEU1n2G2jmPSjnx1ZKdSF2vB36egNKcReVrz/xwpIZdIpZoyUu0CjPxu+MpGLAedmE/39iAmJIcu72BpKoWkpseLXy2lnJGPSMFw==
+        type : 18
+      -
+        type : 161
+        enabled : false
+  -
+    name : BTN_OK
+    identifier : 0x28510c9e02fcc3eb
+    internal_properties : CAAAAAgAAAD50FTY8+q3cSA0MtMKtnYROisRpbALQUfC9rchQbs8lwTIpv2L+TxxW3EiMsoa81w8uJ4FVHMSCEWvA9AR4VY5ttmwxFHf0rGJ0uPrQ0kEwusUjrONEi6FJfKpxk5O+jewa3BhUQAhXtEfmf3oTmsweskiFjCwUhffIK5FeLUKgI8PBf5M+8Z67D2h26FoTTJbNRMfLo5ZaBRO+UTkhT8ODlMHMHfd1yIgvm1MHuFZi/EKbFyPrhwqDHulRDN2EdLWp9XQV1uZ1Xszj8o/XUFHL6bFLK4tgdchqxQT1bR1Wh182bWUC5iGC0OGGSX2nzquVbAtr9t6bTzY9kLjXLAruqqPfcYynZMcqxtk6Pc+ogg4qlMAU567SBompU9IT871z4BERjIQv+N/JD9HpO5e3ZXE8aVKbiAcbVmJbwZi2DUaPNIPIqAhGcBfjKtjbkxHCEDq0gCLccWWt7WKygm0XmRLtF+8+TlVaak04CBcYbjJeQCtDUBGY+e3+2dgz0o+BZaIyzGzQtjJPWkI0x41xB3UM37wEVRjkGime+Gst/HfZ23cgrDg9qA5Ua3JiFOwAmaIe3eYSKBouh5oNsQJIXQoCHsUUHn2Ubh0eNf8Uj3sfRLfkd69dS+KrIVpKqqcFB/y1UlKXm1jWFV3KEpc90rkp2eXAFEfnT/hy/QMNPBhl8VDpaVm9Qv3iW8AR09PABFobESnRYVhm1CTC7JGAoCn/3ZUtX0mIF3wBtReQ8uiHaRcvgfMnLc9WvbHQkR47JGFEDxvmN6Z2ROSuDu+1yu1ZyjiB7ZyS/M7bDQpMCS42E/eicyrGlqcEngtCg7f+tYSSkO7x68kOm+fu/Z1
+    properties :
+     x : 160
+     y : 195
+     width : 80
+     height : 24
+    type : 4
+    code_elements :
+     type_code : 4
+     p_codes :
+      -
+        code : |1-
+         
+         // Check
+         IF CBOX_LOG _AND_ EDT_DIRECTORY ~= "" THEN
+         	Error("Specify a directory")
+         	ReturnToCapture(EDT_DIRECTORY)
+         END
+         
+         // Transfers the modifications
+         ScreenToSource()
+         
+         // Stores the parameters for a future use
+         SaveParameter("Port", 			EDT_PORT)
+         SaveParameter("SSL", 			CBOX_SSL)
+         SaveParameter("Log", 			CBOX_LOG)
+         SaveParameter("DirectoryLog", 	EDT_DIRECTORY)
+         
+         // Closes the window
+         Close()
+        type : 18
+      -
+        type : 161
+        enabled : false
+ menu :
+  name : _Menu
+  identifier : 0x27f2387f0ef2c919
+  internal_properties : CAAAAAgAAACCv199ARoPUfG3WAPSG9eefhOOjWMQrs8CrX6cGGGJPoSHWBq4PXhStOWc1YnAZMZ5+EFR1WTDn8CTOTiyLnXPpAR5X8rsRkPZrm1yZeYDDt4kRzDPLbUf4Sh/mD3kd1D8V2drCFLmjeQhgpw7GKGwHRga+ZdjSqXGIC3LD1RracZ230hOmUJTj+ABDW4IHrw4PflmVGgp8E9KnAf/gselRrzEY90l3Cr9N00QijFYYrbrl4qF4kdim1YX6jYT4ezQhbJsU84ENZsxzq+o0JVHYQ8rxck600VhGV04/ao=
+  options : []
+ languages :
+  - en-GB
+ popup_menus : []
+ message_bar :
+  internal_properties : CAAAAAgAAAB5rutJ4BTymvjDEYFgjOyP9XueoTnfDpwyQ+51Es5rq5eyZ6OIcocR15Gkr2hImucXJe+W8+Gmnn6h4ZZx0l0cTcJwkgEoGCzYzGQW50hAx63WroO9rjMWPzA4
+ actionbar : {}
+ code_elements :
+  type_code : 1
+  p_codes :
+   -
+     internal_properties : CAAAAAgAAADMC8jWDQnmKMfGe2YuU4Sbj/gdsfDBPC5lGzeraXv+wzuo8P2B+ddXUjKTSbH+d0gT6JN7r++TEhEGRK8ZmoEFZlEUoWzQsc7Pp0SaP4rfl3w7Xgc35zsJ6fOxEM7p/IM43/2BgE/mb/wVPQ==
+     code : |1-
+      
+      // Displays the configuration of gclProxy (data-binding)
+      SourceToScreen()
+      
+      ExecuteProcess(CBOX_LOG, trtChange)
+     type : 34
+   -
+     type : 180
+     enabled : false
+   -
+     type : 230
+     enabled : false
+   -
+     code : |1-
+      
+     type : 40
+   -
+     type : 11
+   -
+     type : 12
+   -
+     type : 17
+   -
+     type : 13
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : Fenêtre1
+resources :
+ string_res :
+  identifier : 0x17f2386a0022750e
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAAC68/W0/adbG0nFCRhrE42B5HRnbDzVHaz86sSQyxlBk7I=
+rad :
+ internal_properties : CAAAAAgAAABoAN7PLpwJW3EiA7WVZdCA5EwrCA1rvutcDHooMWKe
